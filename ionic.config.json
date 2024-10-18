@@ -1,0 +1,7 @@
+{
+  "name": "PaginasIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
