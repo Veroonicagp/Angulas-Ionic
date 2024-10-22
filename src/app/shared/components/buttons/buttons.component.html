@@ -1,0 +1,22 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-button [disabled]="(authService.authenticated$ | async)" fill="clear" (click)="onLogin()">Iniciar Sesión</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button [disabled]="!(authService.authenticated$ | async)" fill="clear" (click)="onLogout()">Cerrar Sesión</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button fill="clear" routerLink="/home">Home</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button fill="clear" routerLink="/people">People</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button fill="clear" routerLink="/groups">Group</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button [disabled]="!(authService.authenticated$ | async)" fill="clear" routerLink="/dashboard">Dashboard</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
