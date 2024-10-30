@@ -4,12 +4,14 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { PersonModalComponent } from './components/person-modal/person-modal.component';
 
 
 
 @NgModule({
   declarations: [ButtonsComponent,
-                MenuComponent
+                MenuComponent,
+                PersonModalComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { MenuComponent } from './components/menu/menu.component';
     IonicModule
   ],
   exports:[ButtonsComponent,
-    MenuComponent
+    MenuComponent,
+    PersonModalComponent
   ]
 })
 export class SharedModule { }

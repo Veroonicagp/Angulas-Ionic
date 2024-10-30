@@ -1,13 +1,28 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>people</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">people</ion-title>
+      <ion-title>people</ion-title>
     </ion-toolbar>
   </ion-header>
-</ion-content>
+  
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">People</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-list>
+        <ion-item *ngFor="let person of people$|async; let i = index">
+            <ion-avatar slot="start">
+                <img *ngIf="person.picture?.thumbnail" #avatar alt="Silhouette of a person's head" [src]="person.picture!.thumbnail"/>
+                <img *ngIf="!(person.picture?.thumbnail)" #avatar alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg"/>
+            </ion-avatar>
+            <ion-label class="ion-text-nowrap">
+                {{person.name}} {{person.surname}} ({{person.age}} años)
+            </ion-label>
+            <ion-button class="ion-padding" (click)="$event.stopPropagation()"[id]="'button-delete-'+person.id" slot="end" color="danger" fill="clear">
+                <ion-icon style="font-size:1.5em" name="trash-outline"></ion-icon> 
+            </ion-button>
+             
+        </ion-item>
+    </ion-list>
+  </ion-content>
